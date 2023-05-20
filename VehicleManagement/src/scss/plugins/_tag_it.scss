@@ -1,0 +1,176 @@
+.tagit {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	
+	&.form-control {
+		height: auto;
+		min-height: $input-height;
+	}
+	&.ui-widget {
+		margin-bottom: 0;
+		font-family: inherit;
+		box-shadow: none !important;
+		border-color: $input-border-color !important;
+		color: $gray-900 !important;
+		position: relative !important;
+		padding: ($input-padding-y - rem(3px)) $input-padding-x !important;
+		line-height: rem(21px) !important;
+		
+		@include border-radius($border-radius !important);
+		@include transition(all .15s ease-in-out);
+		@include display-flex();
+		@include flex-wrap();
+		
+		& li {
+			float: none;
+			
+			&.tagit-choice {
+				font-size: $font-size-base - rem(1px) !important;
+				font-weight: 500;
+				padding: rem(2px) rem(10px) !important;
+				margin-right: 4px !important;
+				margin-top: rem(1px) !important;
+				margin-bottom: rem(1px) !important;
+				border: none;
+				background: $gray-200 !important;
+				color: $gray-800;
+		
+				@include display-flex();
+				@include flex-align(center);
+				@include flex-justify-content(center);
+				@include border-radius(20px);
+				
+				& .tagit-close {
+					position: relative;
+					line-height: rem(21px);
+					text-align: center;
+					top: 0;
+					margin: 0 rem(-5px) rem(-3px) rem(5px);
+					height: rem(21px);
+					text-decoration: none;
+					
+					@include display-flex();
+					@include flex-align(center);
+					
+					& .ui-icon-close {
+						font-size: $font-size-base - rem(4px);
+						color: $gray-500;
+						text-indent: 0;
+						height: 100%;
+						padding-top: rem(2px);
+						background-image: none;
+			
+						@include fontawesome();
+						@include display-flex();
+						@include flex-align(center);
+						@include flex-justify-content(center);
+			
+						&:after {
+							content: '\f00d' !important;
+						}
+						&:hover {
+							box-shadow: none !important;
+							color: rgba($gray-900, 0.5);
+						}
+					}
+					&:hover,
+					&:focus {
+						& .ui-icon-close {
+							&:before {
+								color: rgba($black, .4);
+							}
+						}
+					}
+				}
+			}
+			&.tagit-new {
+				margin: rem(2px) 0;
+  			height: rem(23px);
+  			
+  			@include display-flex();
+  			@include flex-align(center);
+			}
+		}
+		
+		&.inverse {
+			& li {
+				&.tagit-choice {
+					background: $dark;
+					color: $white;
+					
+					& .tagit-close {
+						&:hover,
+						&:focus {
+							& .ui-icon-close {
+								&:before {
+									color: rgba($white, .4);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		&.primary {
+			& li {
+				&.tagit-choice {
+					background: $blue;
+					color: $white;
+				}
+			}
+		}
+		&.info {
+			& li {
+				&.tagit-choice {
+					background: $info;
+					color: $white;
+				}
+			}
+		}
+		&.success {
+			& li {
+				&.tagit-choice {
+					background: $teal;
+					color: $white;
+				}
+			}
+		}
+		&.warning {
+			& li {
+				&.tagit-choice {
+					background: $warning;
+					color: $white;
+				}
+			}
+		}
+		&.danger {
+			& li {
+				&.tagit-choice {
+					background: $danger;
+					color: $white;
+				}
+			}
+		}
+	}
+}
+.tagit-autocomplete {
+	border: none !important;
+	padding: $dropdown-padding-y 0;
+	
+	@include border-radius($border-radius);
+	@include box-shadow($box-shadow);
+	
+	& .ui-menu-item {
+		& .ui-menu-item-wrapper {
+			padding: $dropdown-item-padding-y $dropdown-item-padding-x;
+			border: none;
+			color: inherit;
+			
+			&.ui-state-active {
+				background: $dropdown-link-hover-bg;
+				margin: 0;
+			}
+		}
+	}
+}

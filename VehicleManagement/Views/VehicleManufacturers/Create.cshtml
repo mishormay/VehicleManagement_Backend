@@ -1,0 +1,89 @@
+﻿@model VehicleManagement.Entities.VehicleManufacturer
+
+        @{
+        ViewData["Title"] = "Create";
+        ViewData["AppContentClass"] = "p-0";
+            Layout = "~/Views/Shared/_Layout.cshtml";
+        }
+         @section Styles
+        {
+        <link href="~/lib/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet" />
+        <!-- Filepond stylesheet -->
+        <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+        <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+        <style>
+        .select2-container--default .select2-selection--single {
+            background-color: #fff;
+            border: 1px solid #c9d2e3;
+            border-radius: 4px;
+            height: 35px;
+        }
+            .select2-container--default .select2-selection--single .select2-selection__rendered {
+                color: #444;
+                line-height: 33px;
+            }
+        </style>
+        }
+        
+         @section Scripts {
+        <!-- Bootstrap core JavaScript -->
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+        <script src="~/lib/select-picker/dist/picker.min.js"></script>
+        
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        @{await Html.RenderPartialAsync("_FilePondTender");}
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+        <script>
+        function Submit() {
+            $("#frmSave").submit();
+        }
+        </script>
+        }
+        <!-- BEGIN mailbox -->
+        <div class="mailbox">
+            <!-- BEGIN mailbox-toolbar -->
+            <div class="mailbox-toolbar">
+                <div class="mailbox-toolbar-item"><span class="mailbox-toolbar-text">VehicleManufacturer</span></div>
+                <div class="mailbox-toolbar-item ms-auto"><a asp-action="Index" class="mailbox-toolbar-link"><i class="fa fa-list fa-fw fs-12px me-1"></i> Back to List</a></div>
+                <div class="mailbox-toolbar-item"><a class="mailbox-toolbar-link" asp-action="Index"><i class="fa fa-times fa-fw"></i> Cancel</a></div>
+                <div class="mailbox-toolbar-item"><a href="#" onclick="Submit()" class="mailbox-toolbar-link text-primary bg-blue-transparent-1"><i class="fa fa-save fa-fw me-1"></i> Save</a></div>
+            </div>
+            <!-- END mailbox-toolbar -->
+            <!-- BEGIN mailbox-body -->
+            <div class="mailbox-body">
+                <!-- BEGIN mailbox-content -->
+                <div class="mailbox-content">
+                    <!-- BEGIN scrollbar -->
+                    <div data-scrollbar="true" data-height="100%" data-skip-mobile="true">
+                        <!-- BEGIN mailbox-detail -->
+                        <div class="mailbox-form">
+                            <form asp-action="Create" id="frmSave">
+                                <div class="mailbox-form-header">
+                                    <div class="row mb-n3">
+                                        <div class="col-xl-12 mb-2">
+                                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                                        <div class="form-group">
+                                                            <label asp-for="Name" class="control-label"></label>
+                                                            <input asp-for="Name" class="form-control" />
+                                                            <span asp-validation-for="Name" class="text-danger"></span>
+                                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- END mailbox-detail -->
+                    </div>
+                    <!-- END scrollbar -->
+                </div>
+                <!-- END mailbox-content -->
+            </div>
+            <!-- END mailbox-body -->
+        </div>
+        <!-- END mailbox -->
+
+
+

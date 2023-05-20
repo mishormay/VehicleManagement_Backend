@@ -1,0 +1,184 @@
+﻿@model IEnumerable<VehicleManagement.Entities.User>
+
+@{ ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+     }
+@section Styles {
+    <link href="~/lib/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link href="~/lib/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" />
+    <link href="~/lib/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-table/dist/bootstrap-table.min.css" rel="stylesheet" />
+}
+
+@section Scripts {
+    <script src="~/lib/highlight.js/highlight.min.js"></script>
+    <script src="~/js/demo/highlightjs.demo.js"></script>
+    <script src="~/lib/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/lib/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/lib/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/lib/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+    <script src="~/lib/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="~/lib/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/lib/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="~/lib/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+    <script src="~/lib/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/lib/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+    <script src="~/lib/bootstrap-table/dist/bootstrap-table.min.js"></script>
+    <script src="~/js/demo/table-plugins.demo.js"></script>
+    <script src="~/js/demo/sidebar-scrollspy.demo.js"></script>
+
+    <script>
+        //$(document).ready(function () {
+        //    createTable("#usersTable");
+        //});
+
+        function handleChecked(action, cb, id) {
+            $.ajax({
+                type: "POST",
+                url: "/Users/" + action,
+                dataType: 'json',
+                data: {
+                    UserId: id,
+                    IsChecked: cb.checked
+                },
+                success: () => { }
+            })
+        }
+    </script>
+
+
+}
+
+<div class="d-flex align-items-center mb-3">
+    <div>
+        <h1 class="page-header mb-0">Users</h1>
+    </div>
+
+    @*<div class="ms-auto">
+            <a asp-action="Create" class="btn btn-primary"><i class="fa fa-plus-circle fa-fw me-1"></i> Add City</a>
+        </div>*@
+</div>
+
+<!-- BEGIN container -->
+<div class="container">
+    <!-- BEGIN row -->
+    <div class="row justify-content-center">
+        <!-- BEGIN col-10 -->
+        <div class="col-xl-12">
+            <!-- BEGIN row -->
+            <div class="row">
+                <!-- BEGIN col-12 -->
+                <div class="col-xl-12">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item active">Users</li>
+                    </ul>
+                    <!-- BEGIN #datatable -->
+                    <div id="datatable" class="mb-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <table id="datatableDefault" class="table text-nowrap w-100">
+                                    <thead>
+                                        <tr>
+                                            <th>Image</th>
+                                            @*<th>
+                                                @Html.DisplayNameFor(model => model.FirstName)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.LastName)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.PhoneNumber)
+                                            </th>*@
+
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Username)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.IsAdmin)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.IsEmployee)
+                                            </th>
+                                            <th></th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Email)
+                                            </th>
+                                            @*<th>
+                                                @Html.DisplayNameFor(model => model.Address)
+                                            </th>*@
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                        <tr>
+                                            <td style="width: 70px">
+                                                @if (item.ImageName != null)
+                                                {
+                                        <img src="/UploadFiles/Images/@item.ImageName" class="img-thumbnail" /> }
+                                    else
+                                    {
+                                        <img src="/UploadFiles/Images/noimage.gif" class="img-thumbnail" />}
+
+                                            </td>
+
+                                            @*<td>
+                                                @Html.DisplayFor(modelItem => item.FirstName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.LastName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.PhoneNumber)
+                                            </td>*@
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Username)
+                                            </td>
+                                            <td>
+                                                @if (int.Parse(User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier).Value) == item.Id)
+                                                {
+                                        @Html.DisplayFor(modelItem => item.IsAdmin) }
+                                    else
+                                    {
+                                        <input asp-for="@item.IsAdmin" type='checkbox' onclick='handleChecked("UpdateRoleForAdmin", this, @item.Id);'>}
+                                            </td>
+                                            <td>
+                                                <input asp-for="@item.IsEmployee" type='checkbox' onclick='handleChecked("UpdateRoleForAgent", this, @item.Id);'>
+                                            </td>
+                                            <td>
+                                                @*<a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-info btn-sm"><span data-feather="edit-2"></span></a>*@
+                                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm pull-right"><span class="fas fa-edit"></span></a>
+                                                <a asp-action="ChangeUserPassword" asp-route-id="@item.Id" class="btn btn-danger btn-sm pull-right"><span class="fas fa-key"></span></a>
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Email)
+                                            </td>
+
+                                            @*<td>
+                                                @Html.DisplayFor(modelItem => item.Address)
+                                            </td>*@
+
+
+
+                                        </tr>}
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- END #datatable -->
+
+                </div>
+                <!-- END col-12-->
+
+            </div>
+            <!-- END row -->
+        </div>
+        <!-- END col-10 -->
+    </div>
+    <!-- END row -->
+</div>
+<!-- END container -->

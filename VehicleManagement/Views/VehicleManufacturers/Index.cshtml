@@ -1,0 +1,91 @@
+﻿@model IEnumerable<VehicleManagement.Entities.VehicleManufacturer>
+
+        @{
+        ViewData["Title"] = "Index";
+        ViewData["AppContentClass"] = "p-0";
+            Layout = "~/Views/Shared/_Layout.cshtml";
+        }
+         @section Styles
+        {
+        <link href="~/lib/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+        <link href="~/lib/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" />
+        <link href="~/lib/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" />
+        <link href="~/lib/bootstrap-table/dist/bootstrap-table.min.css" rel="stylesheet" />
+        }
+        
+         @section Scripts {
+        <script src="~/lib/highlight.js/highlight.min.js"></script>
+        <script src="~/js/demo/highlightjs.demo.js"></script>
+        <script src="~/lib/datatables.net/js/jquery.dataTables.min.js"></script>
+        <script src="~/lib/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+        <script src="~/lib/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+        <script src="~/lib/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+        <script src="~/lib/datatables.net-buttons/js/buttons.flash.min.js"></script>
+        <script src="~/lib/datatables.net-buttons/js/buttons.html5.min.js"></script>
+        <script src="~/lib/datatables.net-buttons/js/buttons.print.min.js"></script>
+        <script src="~/lib/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+        <script src="~/lib/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+        <script src="~/lib/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+        <script src="~/lib/bootstrap-table/dist/bootstrap-table.min.js"></script>
+        <script src="~/js/demo/table-plugins.demo.js"></script>
+        <script src="~/js/demo/sidebar-scrollspy.demo.js"></script>
+        }
+        
+        <!-- BEGIN mailbox -->
+<div class="mailbox">
+    <!-- BEGIN mailbox-toolbar -->
+    <div class="mailbox-toolbar">
+        <div class="mailbox-toolbar-item"><span class="mailbox-toolbar-text">VehicleManufacturer</span></div>
+        <div class="mailbox-toolbar-item ms-auto"><a asp-action="Create" class="mailbox-toolbar-link text-primary bg-blue-transparent-1"><i class="fa fa-pen fs-12px ms-1"></i> Create New </a></div>
+    </div>
+    <!-- END mailbox-toolbar -->
+    <!-- BEGIN mailbox-body -->
+    <div class="mailbox-body">
+        <!-- BEGIN mailbox-content -->
+        <div class="mailbox-content">
+            <!-- BEGIN scrollbar -->
+            <div data-scrollbar="true" data-height="100%" data-skip-mobile="true">
+                <!-- BEGIN mailbox-detail -->
+                <div class="mailbox-detail">
+                    <!-- BEGIN mailbox-detail-content -->
+                    <div class="mailbox-detail-content">
+                        <!-- BEGIN mailbox-detail-body -->
+                        <div class="mailbox-detail-body">
+                           <table id="datatableDefault" class="table text-nowrap w-100">
+                                            <thead>
+                                                <tr>
+                                                            <th>
+                                                                @Html.DisplayNameFor(model => model.Name)
+                                                            </th>
+                                                    <th style="text-align:right;">Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model) {
+                                                <tr>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.Name)
+                                                            </td>
+                                                        <td style="text-align:right;">
+                                                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm pull-right"><span class="fas fa-edit"></span></a>
+                                                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-success btn-sm pull-right"><span class="fas fa-list"></span></a>
+                                                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm pull-right"><span class="fas fa-trash"></span></a>
+                                                        </td>
+                                                </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                        </div>
+                        <!-- END mailbox-detail-body -->
+                    </div>
+                    <!-- END mailbox-detail-content -->
+                </div>
+                <!-- END mailbox-detail -->
+            </div>
+            <!-- END scrollbar -->
+        </div>
+        <!-- END mailbox-content -->
+    </div>
+    <!-- END mailbox-body -->
+</div>
+<!-- END mailbox -->

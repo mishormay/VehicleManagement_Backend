@@ -1,0 +1,243 @@
+﻿{
+  "sidebarMenu": [
+    {
+      "text": "Navigation",
+      "is_header": true
+    },
+    {
+      "controller": "Dashboard",
+      "action": "Index",
+      "icon": "fa fa-laptop",
+      "text": "Dashboard"
+    },
+    {
+      "controller": "Email",
+      "icon": "fa fa-file",
+      "text": "Registration",
+      "children": [
+        {
+          "controller": "Email",
+          "action": "Inbox",
+          "text": "School"
+        },
+        {
+          "controller": "Email",
+          "action": "Compose",
+          "text": "Agent"
+        },
+        {
+          "controller": "Email",
+          "action": "Detail",
+          "text": "Draft School"
+        },
+        {
+          "controller": "Email",
+          "action": "Detail",
+          "text": "Draft Agent"
+        }
+      ]
+    },
+
+
+    {
+      "controller": "UIKits",
+      "icon": "fa fa-heart",
+      "text": "Requests",
+      "children": [
+        {
+          "controller": "UIKits",
+          "action": "Bootstrap",
+          "text": "School Joining"
+        },
+        {
+          "controller": "UIKits",
+          "action": "Buttons",
+          "text": "Agent Joining"
+        },
+        {
+          "controller": "UIKits",
+          "action": "Card",
+          "text": "Admissions"
+        },
+        {
+          "controller": "UIKits",
+          "action": "Icons",
+          "text": "NOC"
+        },
+        {
+          "controller": "UIKits",
+          "action": "ModalNotifications",
+          "text": "Notice"
+        }
+      ]
+    },
+    {
+      "controller": "Forms",
+      "icon": "fa fa-file-alt",
+      "text": "Schools",
+      "children": [
+        {
+          "controller": "Forms",
+          "action": "FormElements",
+          "text": "School List"
+        }
+      ]
+    },
+    {
+      "controller": "Tables",
+      "icon": "fa fa-table",
+      "text": "Agents",
+      "children": [
+        {
+          "controller": "Tables",
+          "action": "TableElements",
+          "text": "Agent List"
+        },
+        {
+          "controller": "Tables",
+          "action": "TablePlugins",
+          "text": "Bank Details"
+        },
+        {
+          "controller": "Tables",
+          "action": "TablePlugins",
+          "text": "QR Code - UPI"
+        }
+      ]
+    },
+    {
+      "controller": "Tables",
+      "icon": "fas fa-money-check-alt",
+      "text": "Accounts",
+      "children": [
+        {
+          "controller": "Tables",
+          "action": "TableElements",
+          "text": "Agent Deposit Requests"
+        },
+        {
+          "controller": "Tables",
+          "action": "TablePlugins",
+          "text": "Payout to School"
+        }
+      ]
+    },
+    {
+      "controller": "Charts",
+      "icon": "fa fa-chart-bar",
+      "text": "Data",
+      "children": [
+        {
+          "controller": "Charts",
+          "action": "ChartJs",
+          "text": "Student Data"
+        }
+      ]
+    },
+    {
+      "controller": "Layout",
+      "icon": "fa fa-code-branch",
+      "text": "Reports",
+      "children": [
+        {
+          "controller": "Layout",
+          "action": "StarterPage",
+          "text": "Report 1"
+        },
+        {
+          "controller": "Layout",
+          "action": "FixedFooter",
+          "text": "Report 2"
+        },
+        {
+          "controller": "Layout",
+          "action": "FullHeight",
+          "text": "Report 3"
+        },
+        {
+          "controller": "Layout",
+          "action": "FullWidth",
+          "text": "Report 4"
+        },
+        {
+          "controller": "Layout",
+          "action": "BoxedLayout",
+          "text": "Report 5"
+        },
+        {
+          "controller": "Layout",
+          "action": "MinifiedSidebar",
+          "text": "Report 6"
+        }
+      ]
+    },
+    {
+      "controller": "Pages",
+      "icon": "fa fa-globe",
+      "text": "Website",
+      "children": [
+        {
+          "controller": "Pages",
+          "action": "ScrumBoard",
+          "text": "Banner"
+        },
+        {
+          "controller": "Pages",
+          "action": "Products",
+          "text": "Notice"
+        }
+      ]
+    },
+    {
+      "controller": "Charts",
+      "icon": "fa fa-users",
+      "text": "User Control",
+      "children": [
+        {
+          "controller": "Charts",
+          "action": "ChartJs",
+          "text": "User List"
+        }
+      ]
+    },
+    {
+      "controller": "Charts",
+      "icon": "fa fa-handshake",
+      "text": "Employee Control",
+      "children": [
+        {
+          "controller": "Charts",
+          "action": "ChartJs",
+          "text": "Employee List"
+        }
+      ]
+    },
+    {
+      "controller": "SchoolTypes",
+      "icon": "fa fa-database",
+      "text": "Master Data",
+      "children": [
+        {
+          "controller": "SchoolTypes",
+          "action": "Index",
+          "text": "School Type"
+        },
+        {
+          "controller": "Boards",
+          "action": "Index",
+          "text": "Board"
+        },
+        {
+          "controller": "Mediumz",
+          "action": "Index",
+          "text": "Medium"
+        },
+        {
+          "controller": "PayoutFrequencies",
+          "action": "Index",
+          "text": "Payout Frequency"
+        }
+      ]
+    }
+  ]
+}

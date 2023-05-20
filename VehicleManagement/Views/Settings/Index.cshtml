@@ -1,0 +1,178 @@
+﻿@model VehicleManagement.ViewModels.SettingsViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-action="Index">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="row">
+
+        @{ if (User.IsInRole("Admin"))
+            {
+                <div class="col-lg-6">
+                    <h3>
+                        App Settings
+                    </h3>
+
+                    <hr />
+
+                    <input type="hidden" asp-for="AppSettings.CreatedDate" />
+                    <input type="hidden" asp-for="AppSettings.HeaderImages" />
+                    <div class="form-group">
+                        <label asp-for="AppSettings.Email" class="control-label">E-Mail</label>
+                        <input asp-for="AppSettings.Email" class="form-control" />
+                        <span asp-validation-for="AppSettings.Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="AppSettings.Website" class="control-label">Web Site</label>
+                        <input asp-for="AppSettings.Website" class="form-control" />
+                        <span asp-validation-for="AppSettings.Website" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="AppSettings.AppVersion" class="control-label">App Version</label>
+                        <input asp-for="AppSettings.AppVersion" class="form-control" />
+                        <span asp-validation-for="AppSettings.AppVersion" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="AppSettings.AboutUs" class="control-label">About US</label>
+                        <textarea asp-for="AppSettings.AboutUs" class="form-control textarea-editor"></textarea>
+                        <span asp-validation-for="AppSettings.AboutUs" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="AppSettings.PrivacyPolicy" class="control-label">Privacy Policy</label>
+                        <textarea asp-for="AppSettings.PrivacyPolicy" class="form-control textarea-editor"></textarea>
+                        <span asp-validation-for="AppSettings.PrivacyPolicy" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="AppSettings.UserTerms" class="control-label">User Terms</label>
+                        <textarea asp-for="AppSettings.UserTerms" class="form-control textarea-editor"></textarea>
+                        <span asp-validation-for="AppSettings.UserTerms" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">App Header Images</label>
+                        <input id="inputHeaderImages" type="file" multiple />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="AppSettings.FacebookUrl" class="control-label">Facebook Url</label>
+                        <input asp-for="AppSettings.FacebookUrl" class="form-control" />
+                        <span asp-validation-for="AppSettings.FacebookUrl" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="AppSettings.TwitterUrl" class="control-label">Twitter Url</label>
+                        <input asp-for="AppSettings.TwitterUrl" class="form-control" />
+                        <span asp-validation-for="AppSettings.TwitterUrl" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="AppSettings.YoutubeUrl" class="control-label">Youtube Url</label>
+                        <input asp-for="AppSettings.YoutubeUrl" class="form-control" />
+                        <span asp-validation-for="AppSettings.YoutubeUrl" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="AppSettings.InstagramUrl" class="control-label">Instagram Url</label>
+                        <input asp-for="AppSettings.InstagramUrl" class="form-control" />
+                        <span asp-validation-for="AppSettings.InstagramUrl" class="text-danger"></span>
+                    </div>
+                </div>
+            }}
+
+        <div class="col-lg-6">
+            <h3>
+                User Settings
+            </h3>
+
+            <hr />
+
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label asp-for="FirstName" class="control-label">First Name</label>
+                        <input asp-for="FirstName" class="form-control" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label asp-for="LastName" class="control-label">Last Name</label>
+                        <input asp-for="LastName" class="form-control" />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label asp-for="PhoneNumber" class="control-label">Phone Number</label>
+                        <input asp-for="PhoneNumber" class="form-control" type="tel" />
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label asp-for="Email" class="control-label">Email</label>
+                        <input asp-for="Email" class="form-control" type="email" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Username" class="control-label">Username</label>
+                <input asp-for="Username" class="form-control" />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label asp-for="UserNewPassword" class="control-label">New Password</label>
+                        <input asp-for="UserNewPassword" class="form-control" />
+                        <span asp-validation-for="UserNewPassword" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label asp-for="ConfirmUserNewPassword" class="control-label">New Password Again</label>
+                        <input asp-for="ConfirmUserNewPassword" class="form-control" />
+                        <span asp-validation-for="ConfirmUserNewPassword" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label">Address</label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label asp-for="Latitude" class="control-label">Latitude</label>
+                        <input asp-for="Latitude" class="form-control" />
+                        <span asp-validation-for="Latitude" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label asp-for="Longitude" class="control-label">Longitude</label>
+                        <input asp-for="Longitude" class="form-control" />
+                        <span asp-validation-for="Longitude" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="submit" value="Save" class="btn btn-primary" />
+
+</form>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{await Html.RenderPartialAsync("_FilePondScriptsPartial");}
+
+    <script>
+        $(document).ready(function () {
+            $('.textarea-editor').summernote({
+                height: 300
+            });
+            createFilePond("inputHeaderImages", "AppSettings_HeaderImages");
+        });
+    </script>
+}

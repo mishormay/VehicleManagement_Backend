@@ -1,0 +1,26 @@
+﻿@model VehicleManagement.ViewModels.LoginViewModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutForAuth.cshtml";
+}
+
+<form class="form-signin" asp-action="Index">
+    @*<img class="mb-3" src="~/logo.png" alt="" width="150">*@
+    <h1 class="h4 mb-4 font-weight-normal">Please sign in</h1>
+
+    <label asp-for="Username" class="sr-only">Username</label>
+    <input asp-for="Username" type="text" class="form-control" placeholder="Username" required autofocus />
+
+    <label asp-for="Password" class="sr-only">Password</label>
+    <input asp-for="Password" type="password" class="form-control" placeholder="Password" required />
+
+    @if (!String.IsNullOrEmpty(Model.Message))
+    {
+        <label class="text-danger">@Model.Message</label>
+    }
+    <button class="btn btn-lg btn-primary btn-block mt-4" type="submit">Sign in</button>
+    <div class="mt-3">
+        <a href="~/Login/PasswordForgot">Forgot Password</a>
+    </div>
+    <p class="mt-3 mb-3 text-muted">&copy; @DateTime.Now.Year</p>
+</form>

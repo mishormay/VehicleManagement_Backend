@@ -1,0 +1,190 @@
+.note-editor {
+	background: $white;
+	font-family: $font-family-base !important;
+	
+	&.note-frame {
+		& .note-toolbar {
+			padding: ($card-spacer-y - rem(5px)) $card-spacer-x $card-spacer-y;
+			background: none;
+			
+			@include border-radius(0);
+			
+			& .note-btn-group {
+				& > .note-btn {
+					line-height: $line-height-base;
+					min-height: rem(35px);
+				
+					@include button-variant($white, $gray-300, $gray-800, $gray-100, $gray-300, $gray-800);
+				
+					&.active {
+						background: $gray-200;
+					
+						@include box-shadow(none);
+					}
+				
+					& .note-icon-caret {
+						&:before {
+							content: '';
+						}
+					}
+					& > .note-icon-caret {
+						&:first-child {
+							margin-left: rem(-4px);
+						}
+					}
+				}
+			}
+			& .note-dropdown-menu {
+				border: 0;
+				padding: $dropdown-padding-y $dropdown-padding-x;
+				
+				@include box-shadow($dropdown-box-shadow);
+				@include border-radius($border-radius);
+				
+				& .note-dropdown-item {
+					padding: $dropdown-item-padding-y $dropdown-item-padding-x;
+					
+					&:hover {
+						background: $dropdown-link-hover-bg;
+						color: $dropdown-link-hover-color;
+					}
+				}
+			}
+			& .note-palette {
+				& .note-color-palette {
+					& .note-color-row {
+						@include display-flex();
+						
+						& .note-color-btn {
+							display: block;
+							min-height: initial;
+						}
+					}
+				}
+			}
+			& .note-para {
+				& .note-dropdown-menu {
+					min-width: rem(235px);
+				}
+			}
+		}
+		& .note-editing-area {
+			& .note-editable {
+				padding: $card-spacer-y $card-spacer-x !important;
+			}
+		}
+	}
+	& .note-tooltip {
+		& .note-tooltip-content {
+			@include border-radius($border-radius-sm);
+		}
+	}
+	& .note-modal {
+		& .note-modal-content {
+			border: 0;
+			
+			@include border-radius($modal-content-border-radius);
+			@include box-shadow(none);
+			
+			& .note-modal-header {
+				border: 0;
+				padding: $modal-inner-padding;
+				border-bottom: 1px solid $modal-header-border-color;
+				
+				& .note-modal-title {
+					color: $gray-900;
+					font-weight: $headings-font-weight;
+					font-size: $h5-font-size;
+				}
+				& .close {
+					color: $gray-800;
+				}
+			}
+			& .note-modal-body {
+				padding: $modal-inner-padding;
+				
+				& .form-group {
+					padding-bottom: $spacer;
+					
+					& .note-form-label {
+						margin-bottom: $form-label-margin-bottom;
+						font-size: $font-size-base;
+						font-weight: $font-weight-normal;
+						color: $gray-900;
+						display: block;
+						padding: 0;
+					}
+					& .note-form-control {
+						border: $input-border-width solid $input-border-color;
+						padding: $input-padding-y $input-padding-x;
+						font-family: $input-font-family;
+						font-size: $input-font-size;
+						font-weight: $input-font-weight;
+						line-height: $input-line-height;
+						
+						&:focus {
+							border-color: $input-focus-border-color;
+						}
+					}
+				}
+				& .checkbox {
+					& label {
+						padding: 0;
+						margin: 0;
+						
+						@include display-flex();
+						@include flex-align(center);
+						
+						& input {
+							margin-right: $spacer / 2;
+						}
+					}
+				}
+			}
+			& .note-modal-footer {
+				border: 0;
+				height: auto;
+				padding: $modal-inner-padding;
+				border-top: 1px solid $modal-header-border-color;
+				
+				@include display-flex();
+				@include flex-justify-content(flex-end);
+				
+				& .note-btn {
+					border: none;
+					
+					@include border-radius($border-radius);
+					
+					&.btn.btn-primary {
+						background: $primary;
+						display: block;
+						line-height: $input-btn-line-height;
+						padding: $input-btn-padding-y $input-btn-padding-x;
+						
+						&:hover {
+							background: darken($primary, 15%);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+body .note-modal-backdrop {
+	background: $modal-backdrop-bg;
+	opacity: $modal-backdrop-opacity;
+}
+.card {
+	& > .note-editor {
+		&.note-frame {
+			border: none;
+		}
+	}
+	& > form {
+		& > .note-editor {
+			&.note-frame {
+				border: none;
+			}
+		}
+	}
+}

@@ -1,0 +1,5 @@
+body, html, #app {
+	@include media-breakpoint-up(lg) {
+		height: 100%;
+	}
+}

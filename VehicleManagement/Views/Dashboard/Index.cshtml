@@ -1,0 +1,151 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+@section Scripts {
+    <script src="~/lib/apexcharts/dist/apexcharts.min.js"></script>
+    <script src="~/js/demo/dashboard.demo.js"></script>
+}
+
+<h1 class="page-header mb-3">
+    Hi, Jawad Ur Rehman. <small>here's what's happening today.</small>
+</h1>
+
+<!-- BEGIN row -->
+<div class="row">
+    <!-- BEGIN col-6 -->
+    <div class="col-xl-8">
+        <!-- BEGIN card -->
+        <div class="card text-white-transparent-7 mb-3 overflow-hidden">
+            <!-- BEGIN card-img-overlay -->
+            <div class="card-img-overlay d-block d-lg-none bg-blue rounded"></div>
+            <!-- END card-img-overlay -->
+            <!-- BEGIN card-img-overlay -->
+            <div class="card-img-overlay d-none d-md-block bg-blue rounded" style="background-image: url(assets/img/bg/wave-bg.png); background-position: right bottom; background-repeat: no-repeat; background-size: 100%;"></div>
+            <!-- END card-img-overlay -->
+            <!-- BEGIN card-img-overlay -->
+            <div class="card-img-overlay d-none d-md-block bottom-0 top-auto">
+                <div class="row">
+                    <div class="col-md-8 col-xl-6"></div>
+                    <div class="col-md-4 col-xl-6 mb-n2">
+                        <img src="~/img/page/Fee-collection.svg" alt="" class="d-block ms-n3 mb-5" style="max-height: 310px" />
+                    </div>
+                </div>
+            </div>
+            <!-- END card-img-overlay -->
+            <!-- BEGIN card-body -->
+            <div class="card-body position-relative">
+                <!-- BEGIN row -->
+                <div class="row">
+                    <!-- BEGIN col-8 -->
+                    <div class="col-md-8">
+                        <!-- stat-top -->
+                        <div class="d-flex">
+                            <div class="me-auto">
+                                <h5 class="text-white-transparent-8 mb-3">Total Collection</h5>
+                                <h3 class="text-white mt-n1 mb-1">$2,999.80</h3>
+
+                            </div>
+                        </div>
+
+                        <hr class="hr-transparent bg-white-transparent-2 mt-3 mb-3" />
+
+                        <!-- stat-bottom -->
+                        <div class="row">
+                            <div class="col-6 col-lg-5">
+                                <div class="mt-1">
+                                    <i class="fa fa-fw fa-globe fs-28px text-white"></i>
+                                </div>
+                                <div class="mt-1">
+                                    <div>By Website</div>
+                                    <div class="font-weight-600 text-white">$1,629.80</div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-lg-5">
+                                <div class="mt-1">
+                                    <i class="fa fa-fw fa-building fs-28px text-white"></i>
+                                </div>
+                                <div class="mt-1">
+                                    <div>By Schools</div>
+                                    <div class="font-weight-600 text-white">$700.00</div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <hr class="hr-transparent bg-white-transparent-2 mt-3 mb-3" />
+                        <div class="row">
+                            <div class="col-6 col-lg-5">
+                                <div class="mt-1">
+                                    <i class="fa fa-fw fa-user fs-28px text-white"></i>
+                                </div>
+                                <div class="mt-1">
+                                    <div>By Agent</div>
+                                    <div class="font-weight-600 text-white">$1,629.80</div>
+                                </div>
+                            </div>
+                           
+                        </div>
+
+
+
+                       
+                    </div>
+                    <!-- END col-8 -->
+                    <!-- BEGIN col-4 -->
+                    <div class="col-md-4 d-none d-md-block" style="min-height: 380px;"></div>
+                    <!-- END col-4 -->
+                </div>
+                <!-- END row -->
+            </div>
+            <!-- END card-body -->
+        </div>
+        <!-- END card -->
+    </div>
+    <!-- END col-6 -->
+    <!-- BEGIN col-6 -->
+    <div class="col-xl-4">
+        <!-- BEGIN row -->
+        <div class="row">
+           
+            <!-- BEGIN col-6 -->
+            <div class="col-sm-12">
+                <!-- BEGIN card -->
+                <div class="card mb-3 overflow-hidden fs-13px border-0 bg-gradient-custom-pink" style="min-height: 202px;">
+                    <!-- BEGIN card-img-overlay -->
+                    <div class="card-img-overlay mb-n4 me-n4 d-flex" style="bottom: 0; top: auto;">
+                        <img src="~/img/icon/agent.svg" alt="" class="ms-auto d-block mb-n3" style="max-height: 105px" />
+                    </div>
+                    <!-- END card-img-overlay -->
+                    <!-- BEGIN card-body -->
+                    <div class="card-body position-relative">
+                        <h5 class="text-white-transparent-8 mb-3 fs-16px">Agent Funds</h5>
+                        <h3 class="text-white mt-n1"><div class="font-weight-600 text-white">$700.00</div></h3>
+                       
+                    </div>
+                    <!-- END card-body -->
+                </div>
+                <!-- END card -->
+                <!-- BEGIN card -->
+                <div class="card mb-3 overflow-hidden fs-13px border-0 bg-gradient-custom-indigo" style="min-height: 202px;">
+                    <!-- BEGIN card-img-overlay -->
+                    <div class="card-img-overlay mb-n4 me-n4 d-flex" style="bottom: 0; top: auto;">
+                        <img src="~/img/icon/dues.svg" alt="" class="ms-auto d-block mb-n3" style="max-height: 105px" />
+                    </div>
+                    <!-- end card-img-overlay -->
+                    <!-- BEGIN card-body -->
+                    <div class="card-body position-relative">
+                        <h5 class="text-white-transparent-8 mb-3 fs-16px">Total Pendings</h5>
+                        <h3 class="text-white mt-n1"><div class="font-weight-600 text-white">$700.00</div></h3>
+                       
+                    </div>
+                    <!-- END card-body -->
+                </div>
+                <!-- END card -->
+            </div>
+            <!-- BEGIN col-6 -->
+        </div>
+        <!-- END row -->
+    </div>
+    <!-- END col-6 -->
+</div>
+<!-- END row -->
